@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../shared/services/category.service';
+import { CategoryService } from '../../shared/services/category.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -21,7 +21,7 @@ export class TestComponent implements OnInit {
     this.categories = this.categoryservice.getcategoriesfromjson();
   }
   navigate(id){
-    this.router.navigate(['test',id])
+    this.router.navigate(['test/detail',id])
   }
 
 

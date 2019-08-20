@@ -8,6 +8,7 @@
         <th>created date</th>
         <th>Active</th>
         <th>Goto</th>
+        <th>Remove</th>
     </tr>
     <tr *ngFor="let category of categories">
         <td>{{category.categoryname}}</td>
@@ -30,7 +31,15 @@
            <a href="javascript:void(0)"(click)="navigate(category.categoryid)">View Detail</a>
 
         </td>
+        <td>
+            <button (click)="navigate(deleteRow)">Delete</button>
+        </td>
     </tr>
+   
 </table>
+<div>
+    <h2>Detail :</h2>
+    <router-outlet></router-outlet>
+</div>
 
  

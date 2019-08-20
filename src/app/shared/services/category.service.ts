@@ -7,8 +7,14 @@ export class CategoryService {
     constructor() {
 
     }
+
     getcategoriesfromjson() {
         return categories.categories;
+    }
+
+    getCategoryById(id: number) {
+        const cat = categories.categories.find(x => x.categoryid === id);
+        return cat;
     }
 }
 
