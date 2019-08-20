@@ -1,0 +1,36 @@
+<h1>test works</h1>
+<table style="width:100%">
+    <tr>
+        <th>category name</th>
+        <th>category id</th>
+        <th>description</th>
+        <th>quantity</th>
+        <th>created date</th>
+        <th>Active</th>
+        <th>Goto</th>
+    </tr>
+    <tr *ngFor="let category of categories">
+        <td>{{category.categoryname}}</td>
+        <td>{{category.categoryid}}</td>
+        <td>{{category.description}}</td>
+        <td>{{category.quantity}}</td>
+        <td>{{category.createddate}}</td>
+        <td>
+            <!-- {{category.isActive}} -->
+            
+                <h1 *ngIf="category.isActive">&#10004; </h1>
+                <!-- <h1 *ngIf="category.isActive===true">&#10004; </h1> -->
+
+
+                <!-- <h1 *ngIf="category.isActive===false">&#1119; </h1>  if string then this cndn  -->
+                <h1 *ngIf="!category.isActive">&#10008; </h1>   
+        </td>
+        <td>
+
+           <a href="" (click)="navigate(category.categoryid)">View Detail</a>
+
+        </td>
+    </tr>
+</table>
+
+ 
