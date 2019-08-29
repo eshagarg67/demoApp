@@ -8,8 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-
+  myname="isha";
+  onSubmit(value:any){
+    console.log(value);
+  }
   categories: any[] = [];
+  isDataAvailable=false;
   constructor(private categoryservice: CategoryService, private router: Router) {
 
   }
@@ -17,17 +21,27 @@ export class TestComponent implements OnInit {
 
 
   ngOnInit() {
-    this.categories = this.categoryservice.getcategoriesfromjson();
+   this.categoryservice.getcategoriesfromjson().subscribe(data=>{
+     this.categories=data;
+     this.isDataAvailable=true;
+   },
+   error=>{
+
+   
+   });
   }
   navigate(id) {
     this.router.navigate(['test/detail', id])
   }
 
+  navi(id) {
+    this.router.navigate(['editCategory', id])
+  }
   deleteRow(id) {
-    // this.router.delete(['test/detail'])
+    
 
     if (confirm("Are you sure")) {
-      this.categoryservice.deleteCategoryById(id);
+      this.categoryservice.deleteCategoryById(id)
     }
   }
 }

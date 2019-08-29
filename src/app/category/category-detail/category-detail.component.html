@@ -1,4 +1,6 @@
-<h1> category={{categoryId}}
+
+<ng-container *ngIf="isDataAvailable===true">     
+ <h1> category={{categoryId}}
         <br><br>
         {{category.categoryname}}
         <br><br>
@@ -11,4 +13,6 @@
         {{category.createddate}}
         <br><br>
         {{category.isActive}}
- </h1>       
+
+ </h1> 
+ </ng-container>    

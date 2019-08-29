@@ -1,7 +1,7 @@
-<div class="loader"></div>
 
-<h1>test works</h1>
-<table style="width:100%">
+<h1>Test works</h1>
+<a routerLink="/addCategory">Add</a>
+<table style="width:100%" *ngIf="isDataAvailable===true">
     <tr>
         <th>category name</th>
         <th>category id</th>
@@ -11,6 +11,7 @@
         <th>Active</th>
         <th>Goto</th>
         <th>Remove</th>
+        <th>update</th>
     </tr>
     <tr *ngFor="let category of categories">
         <td>{{category.categoryname}}</td>
@@ -22,19 +23,21 @@
             <!-- {{category.isActive}} -->
             
                 <h1 *ngIf="category.isActive">&#10004; </h1>
-                <!-- <h1 *ngIf="category.isActive===true">&#10004; </h1> -->
+                 <!--<h1 *ngIf="category.isActive===true">&#10004; </h1>if string then this cndn-->
 
 
-                <!-- <h1 *ngIf="category.isActive===false">&#1119; </h1>  if string then this cndn  -->
-                <h1 *ngIf="!category.isActive">&#10008; </h1>   
+                <!-- <h1 *ngIf="category.isActive===false">&#1119; </h1> --> 
+                <h1 *ngIf="!category.isActive">&#10008; </h1>  
         </td>
         <td>
 
            <a href="javascript:void(0)"(click)="navigate(category.categoryid)">View Detail</a>
-
-        </td>
+       </td>
         <td>
             <button (click)=" deleteRow(category.categoryid)">Delete</button>
+        </td>
+        <td>
+            <a href="javascript:void(0)"(click)="navi(category.categoryid)">Edit</a>
         </td>
     </tr>
    
@@ -43,5 +46,6 @@
     <h2>Detail :</h2>
     <router-outlet></router-outlet>
 </div>
+
 
  
