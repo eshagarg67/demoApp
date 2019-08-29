@@ -1,0 +1,29 @@
+<table style="width:100%">
+<tr>
+    <th>Product Name</th>
+    <th>Product Id</th>
+    <th>Description</th>
+    <th>Quantity</th>
+    <th>Manufactured date</th>
+    <th>Active</th>
+    <th>Goto</th>
+</tr>
+<tr *ngFor="let product of items">
+    <td>{{product.productname}}</td>
+    <td>{{product.productid}}</td>
+    <td>{{product.description}}</td>
+    <td>{{product.quantity}}</td>
+    <td>{{product.createddate}}</td>
+    <td>
+        <h4 *ngIf="product.isActive">&#10004; </h4>
+        <h4 *ngIf="!product.isActive">&#10008; </h4> 
+    </td>
+    <td>
+        <a href="javascript:void(0)"(click)="View(product.productid)">View Detail</a>
+    </td>
+</tr>
+</table>
+<div>
+    <h2>Detail</h2>
+    <router-outlet></router-outlet>  
+</div>

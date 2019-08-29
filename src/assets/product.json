@@ -1,0 +1,30 @@
+{
+"items":
+
+[
+    {
+        "productname": "Table",
+        "productid": "1",
+        "description": "good",
+        "quantity": "10",
+        "createddate": "1-01-2019",
+        "isActive":true
+    },
+    {
+        "productname": "chair",
+        "productid": "2",
+        "description": "ok",
+        "quantity": "20",
+        "createddate": "2-01-2019",
+        "isActive":false
+    },
+    {
+        "productname": "sofa",
+        "productid": "3",
+        "description": "excellent",
+        "quantity": "30",
+        "createddate": "3-02-2019",
+        "isActive":true
+    }
+]
+}

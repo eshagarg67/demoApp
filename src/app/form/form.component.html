@@ -1,0 +1,30 @@
+<h1>Form works</h1>
+
+
+<div class="container">
+  <h2>User Data</h2>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+    <div class="form group">
+      <label>categoryname</label>
+      <input type="text" class="form contrrol" name="categoryname" [(ngModel)]="category.categoryname">
+    </div>
+    <div class="form group">
+      <label>categoryid</label>
+      <input type="text" class="form control" autocomplete="none" name="categoryid" [(ngModel)]="category.categoryid">
+    </div>
+    <div class="form group">
+      <label>description</label>
+      <input type="text" class="form control" autocomplete="none" name="description" [(ngModel)]="category.description">
+    </div>
+    <div class="form group">
+      <label>Quantity</label>
+      <input type="text" class="form control" autocomplete="none" name="quantity" [(ngModel)]="category.quantity">
+    </div>
+    <div class="form group">
+      <label>created date</label>
+      <input type="text" class="form control" autocomplete="none" name="created date" [(ngModel)]="category.createddate">
+    </div>
+    <button id="form" type="submit" class="btn-btn-primary">submit</button>
+    <a routerLink="/test">back</a>
+  </form>
+</div>
