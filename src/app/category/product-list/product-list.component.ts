@@ -17,6 +17,16 @@ export class ProductListComponent implements OnInit {
   
 }
 View(id){
-  this.router.navigate(['productlist/detail',id])
+  this.router.navigate(['detail',id])
+}
+edit(id) {
+  this.router.navigate(['editproduct', id])
+}
+deleteRow(id) {
+    
+
+  if (confirm("Sure")) {
+    this.productservice.deleteitembyid(id)
+  }
 }
 }

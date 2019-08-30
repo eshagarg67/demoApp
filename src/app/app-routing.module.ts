@@ -4,7 +4,8 @@ import { CategoryDetailComponent } from './category/category-detail/category-det
 import { TestComponent } from './category/test/test.component';
 import { AddFormComponent } from './form/form.component';
 import { ProductListComponent } from './category/product-list/product-list.component';
-
+import {AddComponent} from './add/add.component';
+import {ProductDetailComponent} from './category/product-detail/product-detail.component';
 const routes: Routes = [
   {
     path: 'test',
@@ -21,15 +22,17 @@ const routes: Routes = [
         component: AddFormComponent,
    },
    {path:'productlist',
-   component: ProductListComponent,
-   children:[
-     {
+   component: ProductListComponent,},
+   //children:[
+    {
        path:'detail/:id',
-       component:ProductListComponent,
-     }
-   ]
+       component:ProductDetailComponent,
+     },
+   //]
   
-  },
+ // },
+  { path: 'addproduct', component: AddComponent },
+  { path: 'editproduct/:id', component: AddComponent },
 
   // {
   //   path: 'category/detail/:id',

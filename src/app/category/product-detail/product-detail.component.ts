@@ -10,8 +10,8 @@ import { ProductService } from '../../shared/services/product.service';
 export class ProductDetailComponent implements OnInit {
 
   productId = 0;
-  product: { "productname": string; "productid": number; "description": string; "quantity": string; "createddate": string; "isActive": boolean; };
-  record: void;
+  product: { "productname": string; "productid": number; "description": string; "quantity": number; "createddate": number; "isActive": boolean; };
+  
   
   constructor(private route: ActivatedRoute,private productservice: ProductService) {
     this.route.params.subscribe(param => {

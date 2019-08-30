@@ -1,3 +1,4 @@
+<a routerLink="/addproduct">Add</a>
 <table style="width:100%">
 <tr>
     <th>Product Name</th>
@@ -7,6 +8,8 @@
     <th>Manufactured date</th>
     <th>Active</th>
     <th>Goto</th>
+    <th>Delete</th>
+    <th>update</th>
 </tr>
 <tr *ngFor="let product of items">
     <td>{{product.productname}}</td>
@@ -21,9 +24,15 @@
     <td>
         <a href="javascript:void(0)"(click)="View(product.productid)">View Detail</a>
     </td>
+    <td>
+        <button (click)=" deleteRow(product.productid)">Delete</button>
+    </td>
+
+    <td>
+        <a href="javascript:void(0)" (click)="edit(product.productid)">Edit</a>
+    </td>
 </tr>
 </table>
 <div>
-    <h2>Detail</h2>
-    <router-outlet></router-outlet>  
-</div>
+
+  

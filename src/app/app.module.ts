@@ -10,6 +10,7 @@ import { CategoryDetailComponent } from './category/category-detail/category-det
 import { AddFormComponent } from './form/form.component';
 import { ProductListComponent } from './category/product-list/product-list.component';
 import { ProductDetailComponent } from './category/product-detail/product-detail.component';
+import { AddComponent } from './add/add.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProductDetailComponent } from './category/product-detail/product-detail
     CategoryDetailComponent,
     AddFormComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
