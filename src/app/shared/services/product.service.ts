@@ -1,17 +1,18 @@
 import * as data from '../../../assets/product.json';
 import { Injectable } from '@angular/core';
+import { Observable,of } from 'rxjs';
 
 @Injectable()
 export class ProductService {
     constructor(){
     }
-    getitemsfromjson(){
-         return data.items;
+    getitemsfromjson():Observable<any>{
+         return of(data.items);
     }
     
-    getitemsbyid(id: number) {
+    getitemsbyid(id: number):Observable<any> {
         const cat = data.items.find(x => x.productid === id);
-        return cat;
+        return of(cat);
     }
 
     deleteitembyid(id:number){

@@ -12,8 +12,13 @@ export class ProductListComponent implements OnInit {
   constructor(private productservice: ProductService,private router:Router) { }
 
   ngOnInit() {
-    this.items = this.productservice.getitemsfromjson();
-    
+    this.productservice.getitemsfromjson().subscribe(data=>{
+      this.items=data;
+    },
+    error=>{
+
+   
+    });
   
 }
 View(id){

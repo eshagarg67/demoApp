@@ -15,11 +15,11 @@ export class CategoryDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,private categoryservice: CategoryService) {
     this.route.params.subscribe(param => {
       this.categoryId= parseInt(param['id']);
-      console.log(this.categoryId);
-       this.categoryservice.getCategoryById(this.categoryId).subscribe(data=>{
+      console.log(this.categoryId); //or can use console.debug
+      this.categoryservice.getCategoryById(this.categoryId).subscribe(data=>{
         this.category=data;
         this.isDataAvailable=true;
-      },
+     },
       error=>{
    
       

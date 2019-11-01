@@ -6,6 +6,8 @@ import { AddFormComponent } from './form/form.component';
 import { ProductListComponent } from './category/product-list/product-list.component';
 import {AddComponent} from './add/add.component';
 import {ProductDetailComponent} from './category/product-detail/product-detail.component';
+import {LoginComponent} from './login/login.component';
+import {ApiComponent} from './api/api.component';
 const routes: Routes = [
   {
     path: 'test',
@@ -33,6 +35,8 @@ const routes: Routes = [
  // },
   { path: 'addproduct', component: AddComponent },
   { path: 'editproduct/:id', component: AddComponent },
+  {path:'login',component:LoginComponent},
+  {path:'Api',component:ApiComponent},
 
   // {
   //   path: 'category/detail/:id',

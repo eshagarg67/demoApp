@@ -23,13 +23,17 @@ product:any= {
       this.productId = parseInt(param['id']);
       console.log(this.productId);
       if (this.productId) {
-       this.product = this.productservice.geteditbyid(this.productId);
-        console.log(this.product);
-      }
-    },
+        this.productservice.geteditbyid(this.productId)
+          console.log(this.product);
+        }
+      },
+  
+      )
+    }
 
-    )
-  }
+    
+       
+
 
   ngOnInit() {
   }

@@ -1,0 +1,84 @@
+<div class="container">
+    <h2>User Data</h2>
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form contrrol" autocomplete="off" name="username" #username="ngModel"
+                [ngClass]="{ 'is-invalid': submitted && username.errors?.required}" [(ngModel)]="loginmodel.uname"
+                required />
+            <div class="design" *ngIf="submitted">
+                <div class="design" *ngIf="username.errors?.required">Username is required ***</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>password</label>
+            <input type="password" class="form control" autocomplete="off" name="password" #password="ngModel"
+                [ngClass]="{ 'is-invalid': submitted && password.errors?.required}" [(ngModel)]="loginmodel.upassword"
+                required minlength="8" maxlength="10" />
+            <div *ngIf="submitted">
+                <div class="design" *ngIf="password.errors?.required">password is required ***</div>
+                <div class="design" *ngIf="password.errors?.minlength">password must be of 8 characters***</div>
+                <div class="design" *ngIf="password.errors?.maxlength">password can contain maximum 10 characters***
+                </div>
+            </div>
+        </div>
+        <div class="form -group">
+            <label>Email</label>
+            <input type="text" class="form control" autocomplete="off" name="Email" #Email="ngModel"
+                [ngClass]="{ 'is-invalid':submitted}" [(ngModel)]="loginmodel.uEmail" required email />
+            <div class="design" *ngIf="submitted">
+                <div class="design" *ngIf="Email.errors?.required">Email is required***</div>
+                <div *ngIf="Email.errors?.email">Email must be a valid email address</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Category</label>
+            <select name="category" autocomplete="none"
+                [ngClass]="{ 'is-invalid':submitted && category.errors?.required  }" [(ngModel)]="loginmodel.udropdown"
+                class="form-control" #category="ngModel" required>
+                <option value="{{category.categoryname}}" *ngFor="let category of categories">{{category.categoryname}}
+                </option>
+            </select>
+            <div class="design" *ngIf="submitted">
+                <div class="design" *ngIf="category.errors?.required">category is required***</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Gender:</label>
+            <label class="radio-inline">
+                <input type="radio" name="selectedBy" [(ngModel)]="loginmodel.ugender" value="Male" required
+                    #selectedBy="ngModel">Male
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="selectedBy" [(ngModel)]="loginmodel.ugender" value="Female" required
+                    #selectedBy="ngModel">Female
+            </label>
+            <div class="design" *ngIf="submitted">
+                <div class="design" *ngIf="selectedBy.errors?.required">Gender is required***</div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Department:</label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="choose" value="Agriculture" (click)="validateCheckbox($event)">Agriculture
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="choose" value="Hotel" (click)="validateCheckbox($event)">Hotel
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" name="choose" value="Engineer" (click)="validateCheckbox($event)">Engineer
+            </label>
+            <div class="design" *ngIf="submitted && count<2">
+                <!-- <div class="design"  *ngIf=""> -->
+                    Please select atleast 2 Department
+                <!-- </div> -->
+            </div>
+        </div>
+        <button id="form" type="submit" class="btn-btn-primary">submit</button>
+    </form>
+</div>
+{{userForm.value | json}}

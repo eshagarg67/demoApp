@@ -1,6 +1,6 @@
-
 <h1>Test works</h1>
 <a routerLink="/addCategory">Add</a>
+
 <table style="width:100%" *ngIf="isDataAvailable===true">
     <tr>
         <th>category name</th>
@@ -13,6 +13,8 @@
         <th>Remove</th>
         <th>update</th>
     </tr>
+    <!-- *ngIf="categories && categories.length > 0" -->
+    <ng-container *ngIf="categories && categories.length > 0;else next_block">
     <tr *ngFor="let category of categories">
         <td>{{category.categoryname}}</td>
         <td>{{category.categoryid}}</td>
@@ -21,31 +23,48 @@
         <td>{{category.createddate}}</td>
         <td>
             <!-- {{category.isActive}} -->
-            
-                <h1 *ngIf="category.isActive">&#10004; </h1>
-                 <!--<h1 *ngIf="category.isActive===true">&#10004; </h1>if string then this cndn-->
+
+            <h1 *ngIf="category.isActive">&#10004; </h1>
+            <!--<h1 *ngIf="category.isActive===true">&#10004; </h1>if string then this cndn-->
 
 
-                <!-- <h1 *ngIf="category.isActive===false">&#1119; </h1> --> 
-                <h1 *ngIf="!category.isActive">&#10008; </h1>  
+            <!-- <h1 *ngIf="category.isActive===false">&#1119; </h1> -->
+            <h1 *ngIf="!category.isActive">&#10008; </h1>
         </td>
         <td>
+            <!-- <mat-spinner [diameter]="50" *ngIf="showSpinner"></mat-spinner> -->
 
-           <a href="javascript:void(0)"(click)="navigate(category.categoryid)">View Detail</a>
-       </td>
+            <a href="javascript:void(0)" (click)="navigate(category.categoryid)">View Detail</a>
+        </td>
         <td>
             <button (click)=" deleteRow(category.categoryid)">Delete</button>
         </td>
         <td>
-            <a href="javascript:void(0)"(click)="navi(category.categoryid)">Edit</a>
+            <a href="javascript:void(0)" (click)="navi(category.categoryid)">Edit</a>
         </td>
+        <!-- </tr>
+    <tr *ngIf="categories && categories.length === 0">
+        No data-->
     </tr>
-   
+</ng-container>
+    <ng-template #next_block>
+    <tr>
+        <td colspan="8">
+                No data found.
+        </td>
+    </tr>    
+       
+    
+    </ng-template>
+
 </table>
+
+
+
 <div>
-    <h2>Detail :</h2>
+    <h2>Detail</h2>
     <router-outlet></router-outlet>
 </div>
-
-
- 
+<div [hidden]="!visible">
+<div class="loader"></div>
+</div>

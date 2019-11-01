@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../shared/services/category.service';
 import { ActivatedRoute } from '@angular/router';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -14,13 +15,14 @@ export class AddFormComponent implements OnInit {
     isActive: false
   };
 
-  constructor(private route: ActivatedRoute, private categoryservice: CategoryService) {
+  constructor(private route: ActivatedRoute,private router:Router, private categoryservice: CategoryService) {
     this.route.params.subscribe(param => {
       this.categoryId = parseInt(param['id']);
       console.log(this.categoryId);
       if (this.categoryId) {
-        this.category = this.categoryservice.getEditById(this.categoryId);
+        this.category=  this.categoryservice.getEditById(this.categoryId);
         console.log(this.category);
+
       }
     },
 
@@ -39,22 +41,13 @@ export class AddFormComponent implements OnInit {
     console.log(detail);
     if (!this.categoryId) {
       this.categoryservice.adddetailbysubmit(detail);
+      this.router.navigate(['/', 'test']);
     }
     else {
       // update
        
     }
   }
-
-
-
-
-
-
-
-
-
-
 
 
 }
